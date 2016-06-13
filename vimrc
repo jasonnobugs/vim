@@ -76,12 +76,74 @@ set wildmenu
 "au WinEnter * set cursorline cursorcolumn
 "set cursorline cursorcolumn
 
+"() {} []自动不全
+":inoremap ( ()<ESC>i
+":inoremap ) <c-r>=ClosePair(')')<CR>
+":inoremap { {}<ESC>i
+":inoremap } <c-r>=ClosePair('}')<CR>
+":inoremap [ []<ESC>i
+":inoremap ] <c-r>=ClosePair(']')<CR>
+"":inoremap < <><ESC>i
+"":inoremap > <c-r>=ClosePair('>')<CR>
+"function ClosePair(char)
+"	if getline('.')[col('.') - 1] == a:char
+"		return \"\<Right>"
+"	else
+"		return a:char
+"	endif
+"endf
+
 au FileType php call AddPHPFuncList()
 function AddPHPFuncList()
 	set dictionary-=~/.vim/php_funclist.txt dictionary+=~/.vim/php_funclist.txt
 	set complete-=k complete+=k
 endfunction
 
+"在当前含的上面添加函数的注释
+map <F5> ms:call AddNotes()<cr>'s
+function AddNotes()
+	call append(line(".")-1,"/**")
+	call append(line(".")-1," * description\t")
+	call append(line(".")-1," * @access\tpublic")
+	call append(line(".")-1," * @author\t\zhaoyingnan\t".strftime("%Y-%m-%d %H:%M"))
+	call append(line(".")-1," * @param\tint\t\t\t$iVar")
+	call append(line(".")-1," * @param\tstring\t\t$sVar")
+	call append(line(".")-1," * @param\tarray\t\t$arVar")
+	call append(line(".")-1," * @return\t")
+	call append(line(".")-1," * @note\t")
+	call append(line(".")-1," **/")
+	normal gg=G
+endfunction
+
+"添加头文件
+map <F4> ms:call AddTitle()<cr>'s
+function AddTitle()
+	call append(1,"/**")
+	call append(2," * @package\tDescription")
+	call append(3," * @author\tzhaoyingnan<zhaoyn@bbtree.com>")
+	"call append(3," * Create date:".strftime("%Y-%m-%d %H:%M"))
+	"call append(4," * Modified date:".strftime("%Y-%m-%d%H:%M"))
+	call append(4," * @copyright\t")
+	call append(5," * @version\t")
+	call append(6," * @since\t")
+	call append(7," **/")
+endfunction
+
+"python
+map <F6> ms:call AddNotesForPython()<cr>'s
+function AddNotesForPython()
+	call append(line(".")-1," ###")
+	call append(line(".")-1," # description\t")
+	call append(line(".")-1," # @access\tpublic")
+	call append(line(".")-1," # @author\t\zhaoyingnan\t".strftime("%Y-%m-%d %H:%M"))
+	call append(line(".")-1," # @param\tint\t\t\tiVar")
+	call append(line(".")-1," # @param\tstring\t\tsVar")
+	call append(line(".")-1," # @param\tarray\t\tarVar")
+	call append(line(".")-1," # @return\t")
+	call append(line(".")-1," # @note\t")
+	call append(line(".")-1," ###")
+	normal gg=G
+endfunction
 
 "===================================
 ""    Vim基本配置end
