@@ -71,6 +71,8 @@ set novisualbell
 set nocp  
 " 增强模式中的命令行自动完成操作 
 set wildmenu
+" 修改注释的颜色
+highlight Comment ctermfg=yellow guifg=yellow
 
 "au WinLeave * set nocursorline nocursorcolumn
 "au WinEnter * set cursorline cursorcolumn
