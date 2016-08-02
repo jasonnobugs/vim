@@ -2,20 +2,20 @@
 ###wuye's vimrc#
 <code>cd ~
 
-mkdir vimbak 
+mkdir vimbak
 
-mv .vimrc vimbak/vimrc  
+mv .vimrc vimbak/vimrc
 
-mv .vim vimbak/vim  
+mv .vim vimbak/vim
 
-cd wuye.vim  
+cd wuye.vim
 
-mv vimrc ~/.vimrc  
+mv vimrc ~/.vimrc
 
-mv vim ~/.vim 
+mv vim ~/.vim
 
-cd ../  
+cd ../
 
-rm -rf wuye.vim  
+rm -rf wuye.vim
 
 </code>
