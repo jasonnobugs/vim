@@ -1,5 +1,5 @@
 ###wuye's vimrc#
-<pre>cd ~  
+<code>cd ~  
 mkdir vimbak  
 mv .vimrc vimbak/vimrc  
 mv .vim vimbak/vim  
@@ -8,4 +8,4 @@ mv vimrc ~/.vimrc
 mv vim ~/.vim  
 cd ../  
 rm -rf wuye.vim  
-</pre>
+</code>
