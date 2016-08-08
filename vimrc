@@ -14,6 +14,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/AutoComplPop'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'kien/ctrlp.vim'
+Plugin 'klen/python-mode'
 call vundle#end()            " required
 filetype plugin indent on    " required
 "===================================
@@ -281,3 +282,34 @@ let g:acp_enableAtStartup = 1
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 "}
+
+
+"===================================
+""   python-mode setting start
+"===================================
+"基本设置
+let g:pymode = 1 " 开启该插件
+let g:pymode_warnings = 1 " Turn off plugin's warnings
+let g:pymode_trim_whitespaces = 1 " Trim unused white spaces on save
+let g:pymode_options = 1 " Setup default python options
+let g:pymode_options_max_line_length = 79 " Setup max line length(中间的红色分割线)
+let g:pymode_options_colorcolumn = 1 " Enable colorcolumn display at max_line_length
+let g:pymode_quickfix_minheight = 3 " etup pymode |quickfix| window
+let g:pymode_quickfix_maxheight = 6 " etup pymode |quickfix| window
+let g:pymode_folding = 1 " Enable pymode folding 折行
+let g:pymode_run = 1 " Turn on the run code script 运行脚本
+let g:pymode_run_bind = '<leader>r' " Binds keys to run python code 运行脚本的key
+let g:pymode_breakpoint = 1 " Pymode automatically detects available debugger
+let g:pymode_breakpoint_bind = '<leader>b' " Bind debugger keys
+
+"check code Setup
+let g:pymode_lint = 1 " 开启代码检测
+let g:pymode_lint_on_write = 1 " Check code on every save (if file has been modified)
+let g:pymode_lint_unmodified = 1 " Check code on every save (every)
+let g:pymode_lint_on_fly = 0 " Check code when editing (on the fly)
+let g:pymode_lint_message = 1 " Show error message if cursor placed at the error line
+let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe'] " Default code checkers (you could set several)
+
+"===================================
+""   python-mode setting end
+"===================================
