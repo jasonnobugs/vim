@@ -15,6 +15,7 @@ Plugin 'vim-scripts/AutoComplPop'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'kien/ctrlp.vim'
 Plugin 'klen/python-mode'
+Plugin 'bronson/vim-trailing-whitespace'
 call vundle#end()            " required
 filetype plugin indent on    " required
 "===================================
@@ -312,4 +313,15 @@ let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe'] " Default code check
 
 "===================================
 ""   python-mode setting end
+"===================================
+
+
+
+"===================================
+""   vim-trailing-whitespace setting start
+""   显示行尾空白&&删除
+"===================================
+map <leader><space> :FixWhitespace<cr>
+"===================================
+""   vim-trailing-whitespace end
 "===================================
