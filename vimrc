@@ -16,6 +16,7 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'kien/ctrlp.vim'
 Plugin 'klen/python-mode'
 Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'kshenoy/vim-signature'
 call vundle#end()            " required
 filetype plugin indent on    " required
 "===================================
@@ -26,8 +27,8 @@ filetype plugin indent on    " required
 "===================================
 ""    Vim基本配置start
 "===================================
-if v:lang =~ "utf8$" || v:lang =~ "UTF-8$" 
-        set encoding=utf-8 
+if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
+        set encoding=utf-8
 endif
 " 不要vim模仿vi模式，建议设置，否则会有很多不兼容的问题
 set nocompatible
@@ -39,39 +40,39 @@ set completeopt=longest,menu
 syntax on
 " 去掉烦人的交换文件
 set noswf
-" 自动缩进 
+" 自动缩进
 set autoindent
-"智能对齐方式 
+"智能对齐方式
 set smartindent
-" 一个tab是4个字符 
+" 一个tab是4个字符
 set tabstop=4
-" 按一次tab前进4个字符 
+" 按一次tab前进4个字符
 set softtabstop=4
-" 设置自动缩进 
+" 设置自动缩进
 set ai!
-" 缩进的字符个数 
-set cindent shiftwidth=4 
+" 缩进的字符个数
+set cindent shiftwidth=4
 set autoindent shiftwidth=4
-" 显示行号 
+" 显示行号
 set number
-" 打开光标的行列位置显示功能 
+" 打开光标的行列位置显示功能
 set ruler
-" 行高亮 
+" 行高亮
 set cursorline
-" 高亮搜索的关键字 
+" 高亮搜索的关键字
 set hlsearch
-" 搜索忽略大小写 
+" 搜索忽略大小写
 set ignorecase
 " 设置命令历史行数
 set history=100
-" 不要闪烁 
+" 不要闪烁
 set novisualbell
-" 显示TAB健 
-"set list 
+" 显示TAB健
+"set list
 "set listchars=tab:>-,trail:-
-" 去掉有关vi一致性模式，避免以前版本的一些bug和局限 
-set nocp  
-" 增强模式中的命令行自动完成操作 
+" 去掉有关vi一致性模式，避免以前版本的一些bug和局限
+set nocp
+" 增强模式中的命令行自动完成操作
 set wildmenu
 " 修改注释的颜色
 highlight Comment ctermfg=yellow guifg=yellow
@@ -324,4 +325,37 @@ let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe'] " Default code check
 map <leader><space> :FixWhitespace<cr>
 "===================================
 ""   vim-trailing-whitespace end
+"===================================
+
+
+
+"===================================
+""   vim-signature setting start
+""   marks
+"===================================
+" mx           Toggle mark 'x' and display it in the leftmost column
+" dmx          Remove mark 'x' where x is a-zA-Z
+" m,           Place the next available mark
+" m.           If no mark on line, place the next available mark. Otherwise, remove (first) existing mark.
+" m-           Delete all marks from the current line
+" m<Space>     Delete all marks from the current buffer
+" ]`           Jump to next mark
+" [`           Jump to prev mark
+" ]'           Jump to start of next line containing a mark
+" ['           Jump to start of prev line containing a mark
+" `]           Jump by alphabetical order to next mark
+" `[           Jump by alphabetical order to prev mark
+" ']           Jump by alphabetical order to start of next line having a mark
+" '[           Jump by alphabetical order to start of prev line having a mark
+" m/           Open location list and display marks from current buffer
+" m[0-9]       Toggle the corresponding marker !@#$%^&*()
+" m<S-[0-9]>   Remove all markers of the same type
+" ]-           Jump to next line having a marker of the same type
+" [-           Jump to prev line having a marker of the same type
+" ]=           Jump to next line having a marker of any type
+" [=           Jump to prev line having a marker of any type
+" m?           Open location list and display markers from current buffer
+" m<BS>        Remove all markers
+"===================================
+""   vim-signature end
 "===================================
