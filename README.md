@@ -1,4 +1,4 @@
-###wuye's vimrc#
+### wuye's vimrc
 <pre>cd ~  
 mkdir vimbak  
 mv .vimrc vimbak/vimrc  
