@@ -46,6 +46,7 @@ set autoindent
 set smartindent
 " 一个tab是4个字符
 set tabstop=4
+set expandtab
 " 按一次tab前进4个字符
 set softtabstop=4
 " 设置自动缩进
