@@ -17,6 +17,9 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'klen/python-mode'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'kshenoy/vim-signature'
+Plugin 'KabbAmine/zeavim.vim'
+Plugin 'Yggdroot/indentLine'
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " required
 filetype plugin indent on    " required
 "===================================
@@ -33,6 +36,7 @@ endif
 " 不要vim模仿vi模式，建议设置，否则会有很多不兼容的问题
 set nocompatible
 " 检测文件的类型
+set foldmethod=indent "折行相关的配置
 filetype on
 filetype plugin on
 filetype plugin indent on
@@ -185,13 +189,13 @@ endfunction
 "PHP函数库
 au FileType php call AddPHPFuncList()
 "为PHP文件添加php标签
-au FileType php call AddPHPTag()
+"au FileType php call AddPHPTag()
 "为PHP文件自动添加 FILE DOC COMMENT
-au FileType php call AddFileDocComment()
+"au FileType php call AddFileDocComment()
 "为PHP文件自动添加 CLASS DOC COMMENT
-au FileType php call AddClassDocComment()
+"au FileType php call AddClassDocComment()
 "删除PHP文件的最后一行
-au FileType php exec "normal Gdd"
+"au FileType php exec "normal Gdd"
 
 "===================================
 ""    Vim基本配置end
@@ -264,10 +268,11 @@ let airline#extensions#c_like_langs = ['c', 'cpp', 'cuda', 'javascript', 'ld', '
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_ignore_files = ['php'] " 忽略的文件类型
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0 " 打开文件时检测
+let g:syntastic_check_on_wq = 0 " 保存时检测
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 "===================================
@@ -348,7 +353,7 @@ let g:pymode_breakpoint = 1 " Pymode automatically detects available debugger
 let g:pymode_breakpoint_bind = '<leader>b' " Bind debugger keys
 
 "check code Setup
-let g:pymode_lint = 1 " 开启代码检测
+let g:pymode_lint = 0 " 开启代码检测
 let g:pymode_lint_on_write = 1 " Check code on every save (if file has been modified)
 let g:pymode_lint_unmodified = 1 " Check code on every save (every)
 let g:pymode_lint_on_fly = 0 " Check code when editing (on the fly)
@@ -401,4 +406,15 @@ map <leader><space> :FixWhitespace<cr>
 " m<BS>        Remove all markers
 "===================================
 ""   vim-signature end
+"===================================
+
+
+"===================================
+""   Yggdroot/indentLine start
+"===================================
+let g:indentLine_enabled = 1 " close indentLine with 0
+"let g:indentLine_color_term = 239
+"let g:indentLine_char = '|' "Change Indent Char
+"===================================
+""   Yggdroot/indentLine end
 "===================================
