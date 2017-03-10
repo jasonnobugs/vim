@@ -19,7 +19,9 @@ Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'kshenoy/vim-signature'
 Plugin 'KabbAmine/zeavim.vim'
 Plugin 'Yggdroot/indentLine'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'fugalh/desert.vim'
+Plugin 'tomasr/molokai'
+Plugin 'altercation/vim-colors-solarized'
 call vundle#end()            " required
 filetype plugin indent on    " required
 "===================================
@@ -33,45 +35,45 @@ filetype plugin indent on    " required
 if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
         set encoding=utf-8
 endif
-" 不要vim模仿vi模式，建议设置，否则会有很多不兼容的问题
-set nocompatible
-" 检测文件的类型
+
+set nocompatible " 不要vim模仿vi模式，建议设置，否则会有很多不兼容的问题
 set foldmethod=indent "折行相关的配置
+" 检测文件的类型
 filetype on
 filetype plugin on
 filetype plugin indent on
 set completeopt=longest,menu
 syntax on
-" 去掉烦人的交换文件
-set noswf
-" 自动缩进
-set autoindent
-"智能对齐方式
-set smartindent
-" 一个tab是4个字符
-set tabstop=4
+
+"colorscheme start {
+"colorscheme desert
+"colorscheme herald
+"colorscheme thestars
+"colorscheme murphy
+"colorscheme vividchalk
+"colorscheme BusyBee
+colorscheme jellybeans
+"colorscheme black_angus
+"colorscheme molokai
+"colorscheme solarized
+" } colorscheme end
+
+set noswf " 去掉烦人的交换文件
+set autoindent " 自动缩进
+set smartindent "智能对齐方式
+
+set tabstop=4 " 一个tab是4个字符
 set expandtab
-" 按一次tab前进4个字符
-set softtabstop=4
-" 设置自动缩进
-set ai!
-" 缩进的字符个数
-set cindent shiftwidth=4
+set softtabstop=4 " 按一次tab前进4个字符
+set cindent shiftwidth=4 " 缩进的字符个数
 set autoindent shiftwidth=4
-" 显示行号
-set number
-" 打开光标的行列位置显示功能
-set ruler
-" 行高亮
-set cursorline
-" 高亮搜索的关键字
-set hlsearch
-" 搜索忽略大小写
-set ignorecase
-" 设置命令历史行数
-set history=100
-" 不要闪烁
-set novisualbell
+set number " 显示行号
+set ruler " 打开光标的行列位置显示功能
+set cursorline " 行高亮
+set hlsearch " 高亮搜索的关键字
+set ignorecase " 搜索忽略大小写
+set history=100 " 设置命令历史行数
+set novisualbell " 不要闪烁
 " 显示TAB健
 "set list
 "set listchars=tab:>-,trail:-
@@ -80,13 +82,13 @@ set nocp
 " 增强模式中的命令行自动完成操作
 set wildmenu
 " 修改注释的颜色
-highlight Comment ctermfg=yellow guifg=yellow
+"highlight Comment ctermfg=yellow guifg=yellow
 
 "au WinLeave * set nocursorline nocursorcolumn
 "au WinEnter * set cursorline cursorcolumn
 "set cursorline cursorcolumn
 
-"() {} []自动不全
+"() {} []自动不全 {
 ":inoremap ( ()<ESC>i
 ":inoremap ) <c-r>=ClosePair(')')<CR>
 ":inoremap { {}<ESC>i
@@ -102,6 +104,8 @@ highlight Comment ctermfg=yellow guifg=yellow
 "		return a:char
 "	endif
 "endf
+" }() {} []自动不全
+
 
 function AddPHPFuncList()
 	set dictionary-=~/.vim/php_funclist.txt dictionary+=~/.vim/php_funclist.txt
@@ -268,11 +272,11 @@ let airline#extensions#c_like_langs = ['c', 'cpp', 'cuda', 'javascript', 'ld', '
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_ignore_files = ['php'] " 忽略的文件类型
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0 " 打开文件时检测
-let g:syntastic_check_on_wq = 0 " 保存时检测
+"let g:syntastic_ignore_files = ['php'] " 忽略的文件类型
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1 " 打开文件时检测
+let g:syntastic_check_on_wq = 1 " 保存时检测
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 "===================================
@@ -353,7 +357,7 @@ let g:pymode_breakpoint = 1 " Pymode automatically detects available debugger
 let g:pymode_breakpoint_bind = '<leader>b' " Bind debugger keys
 
 "check code Setup
-let g:pymode_lint = 0 " 开启代码检测
+let g:pymode_lint = 1 " 开启代码检测
 let g:pymode_lint_on_write = 1 " Check code on every save (if file has been modified)
 let g:pymode_lint_unmodified = 1 " Check code on every save (every)
 let g:pymode_lint_on_fly = 0 " Check code when editing (on the fly)
