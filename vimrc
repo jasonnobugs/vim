@@ -26,6 +26,7 @@ Plugin 'altercation/vim-colors-solarized' " colorscheme
 "Plugin 'isnowfy/python-vim-instant-markdown'
 Plugin 'iamcco/mathjax-support-for-mkdp'
 Plugin 'iamcco/markdown-preview.vim'
+Plugin 'davidhalter/jedi-vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -429,3 +430,12 @@ au FileType php call AddPHPFuncList()
 " YouCompleteMe
 "let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 "let g:ycm_collect_identifiers_from_tag_files = 1
+
+
+"=========================
+" python配置start
+"=========================
+let g:jedi#auto_initialization = 1  " 自动加载
+"=========================
+" python配置end
+"=========================

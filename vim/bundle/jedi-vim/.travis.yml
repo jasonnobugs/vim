@@ -1,0 +1,18 @@
+sudo: false
+language: python
+env:
+  matrix:
+    - ENV=test
+    - ENV=check
+matrix:
+  allow_failures:
+    # Needs to be fixed!
+    - env: ENV=test
+install:
+  - |
+    if [ "$ENV" = "test" ]; then
+      pip install pytest
+    fi
+script:
+  - vim --version
+  - make "$ENV"
