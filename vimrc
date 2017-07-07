@@ -439,6 +439,7 @@ let g:jedi#auto_initialization = 1  " 自动加载
 "=========================
 " python配置end
 "=========================
+
 " tags 设置
 nmap <leader>t <ESC>:!ctags -f ~/tags -R `pwd` --languages=php --langmap=php:+.php -h +.php --extra=+q --exclude=*.js --exclude=*.html --tag-relative<CR>
 set tags=~/tags
