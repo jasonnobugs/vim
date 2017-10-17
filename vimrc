@@ -443,3 +443,6 @@ let g:jedi#auto_initialization = 1  " 自动加载
 " tags 设置
 nmap <leader>t <ESC>:!ctags -f ~/tags -R `pwd` --languages=php --langmap=php:+.php -h +.php --extra=+q --exclude=*.js --exclude=*.html --tag-relative<CR>
 set tags=~/tags
+
+" indentLines 的开启和关闭切换的快捷键
+map <leader>i :IndentLinesToggle<cr>
