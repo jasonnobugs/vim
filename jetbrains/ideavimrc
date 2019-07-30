@@ -1,0 +1,93 @@
+"###################################
+" 基本设置
+"###################################
+let mapleader = ","
+set surround
+set hlsearch
+set incsearch
+" 忽略大小写
+set ignorecase
+" 自动匹配
+set smartcase
+" 自动缩进
+set autoindent
+" 智能缩进
+set smartindent
+set showmode
+set clipboard=unnamed
+" 回车即切换到命令行模式
+noremap <CR> :
+" 重新加载配置文件
+nnoremap <leader>r :source ~/.ideavimrc<CR>
+
+"###################################
+" Action 映射
+" :actionlist
+" 这个命令可以查看所有支持的操作
+"###################################
+" 查看 Action 选择器
+nnoremap <leader>s :action Switcher<CR>
+" 文件结构弹出框command+f12(我一般是用command+7 比这个弹出框好用)
+nnoremap <leader>f :action FileStructurePopup<CR>
+" compare with same repository version 当前文件修改的内容
+nnoremap <leader>d :action Compare.SameVersion<CR>
+" 激活 TODO 工具窗口 command+6
+"nnoremap <leader>t :action ActivateTODOToolWindow<CR>
+noremap <leader>t: action ActivateTerminalToolWindow<CR>
+" 关闭项目并选择其他项目
+nnoremap <leader>c :action CloseProject<CR>
+
+" ===========
+" g-生成/到某个地方
+" ===========
+" 查找某个类
+nnoremap gc :action GotoClass<CR>
+" 查找某个文件
+nnoremap gf :action GotoFile<CR>
+" 到某个接口的实现类/某个方法的实现
+nnoremap gi :action GotoImplementation<cr>
+nnoremap g<left> :action Back<cr>
+nnoremap g<right> :action Forward<cr>
+" 弹出选择生成setters的窗口
+nnoremap gas : action PhpGenerateSetters<CR>
+" 弹出选择生成getters的窗口
+nnoremap gag : action PhpGenerateGetters<CR>
+" 生成getters and setters
+nnoremap gsg : action PhpGenerateGettersAndSetters<CR>
+" 弹出Doc选择弹窗
+nnoremap gdoc : action PhpGeneratePhpDocBlocks<CR>
+" 实现某些魔术方法或者实现接口中定义的方法,继承时需要实现的抽象方法
+nnoremap g_ : action ImplementMethods<CR>
+" 弹出能够重写的方法
+nnoremap go : action OverrideMethods<CR>
+
+" ===========
+" 窗口操作
+" ===========
+" 关闭当前窗口(不用写,这里就是标识一下)
+"nnoremap <C-w>c
+" 关闭其他窗口/最大化代码窗口
+nnoremap <C-w>o :action HideAllWindows<CR>
+" 请使用 Ctr-w hljk 来切换窗口 也可以使用方向键
+nnoremap <C-w><left> <C-w>h
+nnoremap <C-w><right> <C-w>l
+nnoremap <C-w><up> <C-w>k
+nnoremap <C-w><down> <C-w>j
+" 水平分割
+nnoremap <C-w>- <C-w>s
+" 垂直分割
+nnoremap <C-w>\ <C-w>v
+
+" ===========
+" 标签页操作
+" ===========
+" 关闭当前窗口中当前编辑的文件
+nnoremap tc :action CloseEditor<CR>
+" 关闭当前窗口中所有编辑的文件
+nnoremap ta :action CloseAllEditors<CR>
+" 重新打开关闭的tab/或文件
+nnoremap tr :action ReopenClosedTab<CR>
+" 切换到下一个Tab
+nnoremap t<down> :action NextTab<CR>
+" 切换到上一个Tab
+nnoremap t<up> :action PreviousTab<CR>
